@@ -1,4 +1,4 @@
-package com.modzo.hello;
+package com.modzo.helloworld;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 class Index {
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "Hey there!";
     }
 
