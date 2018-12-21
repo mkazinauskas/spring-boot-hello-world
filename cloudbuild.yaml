@@ -11,6 +11,6 @@ steps:
       '-t', 'gcr.io/$PROJECT_ID/spring-boot-hello-world:latest',
       '.'
     ]
-images:
-  - 'gcr.io/$PROJECT_ID/spring-boot-hello-world:$SHORT_SHA.$BUILD_ID'
-  - 'gcr.io/$PROJECT_ID/spring-boot-hello-world:latest'
+  - id: 'push docker image to registry'
+    name: 'gcr.io/cloud-builders/docker'
+    args: ["push", "gcr.io/$PROJECT_ID/spring-boot-hello-world:$REVISION_ID"]
