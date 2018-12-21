@@ -1,5 +1,11 @@
 FROM openjdk:8-jdk-alpine
-ADD src/main/resources/application.properties /app/application.properties
-ADD build/libs/hello-world-*.jar /app/hello-world.jar
-WORKDIR /app
+
+RUN adduser --system app --home /app
+USER app
+
+WORKDIR /home/app
+
+ADD src/main/resources/application.properties application.properties
+ADD build/libs/hello-world-*.jar hello-world.jar
+
 ENTRYPOINT [ "sh", "-c", "java -jar hello-world.jar" ]
