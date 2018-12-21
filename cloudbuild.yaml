@@ -3,7 +3,7 @@ steps:
     name: 'gcr.io/cloud-builders/java/javac:8'
     entrypoint: 'bash'
     args: ['./gradlew', 'build']
-  - if: 'build docker image'
+  - id: 'build docker image'
     name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/spring-boot-hello-world:$SHORT_SHA.$BUILD_ID', '.' ]
 images:
