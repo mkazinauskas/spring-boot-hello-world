@@ -1,0 +1,6 @@
+version: '3'
+services:
+  hello-world:
+    image: gcr.io/[GOOGLE_CLOUD_PROJECT_ID]/spring-boot-hello-world:latest
+    ports:
+      - 8080:8080
