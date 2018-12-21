@@ -23,7 +23,7 @@ public class HelloWorldApplicationTests {
     public void helloEndpointReturnsText() {
         ResponseEntity<String> result = template.getForEntity("/", String.class);
         assertEquals(HttpStatus.OK, result.getStatusCode());
-        assertEquals("Hey there!", result.getBody());
+        assertEquals("Hey there! v2", result.getBody());
     }
 }
 

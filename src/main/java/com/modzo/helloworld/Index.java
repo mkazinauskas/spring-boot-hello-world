@@ -8,7 +8,7 @@ class Index {
 
     @GetMapping("/")
     public String index() {
-        return "Hey there!";
+        return "Hey there! v2";
     }
 
 }
