@@ -18,5 +18,5 @@ steps:
       - spring-boot
       - web=gcr.io/$PROJECT_ID/spring-boot-hello-world:$SHORT_SHA.$BUILD_ID
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=spring-boot-hello-world-test-new'
+      - 'CLOUDSDK_COMPUTE_ZONE=$_COMPUTE_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CONTAINER_CLUSTER'
