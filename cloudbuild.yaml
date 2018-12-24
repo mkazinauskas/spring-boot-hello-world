@@ -12,6 +12,6 @@ steps:
   - id: 'tag version'
     name: 'gcr.io/cloud-builders/git'
     args: ['tag', 'image-$SHORT_SHA.$BUILD_ID']
-  - id: 'tag version'
+  - id: 'push new tags'
     name: 'gcr.io/cloud-builders/git'
     args: ['push', '--tags']
