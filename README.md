@@ -5,7 +5,6 @@
 * Execute `./gradlew bootRun`
 
 ### With docker
-* Execute `./gradlew build`
 * Execute `docker-compose up`
 
 ## How to build in google cloud
