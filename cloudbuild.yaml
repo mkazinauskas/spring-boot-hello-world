@@ -9,14 +9,9 @@ steps:
   - id: 'push docker image to registry'
     name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/spring-boot-hello-world:$SHORT_SHA.$BUILD_ID']
-  - id: 'deploy to test cluster'
-    name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - set
-      - image
-      - deployment
-      - spring-boot
-      - spring-boot-hello-world=gcr.io/$PROJECT_ID/spring-boot-hello-world:$SHORT_SHA.$BUILD_ID
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=$_COMPUTE_ZONE'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CONTAINER_CLUSTER'
+  - id: 'tag version'
+    name: 'gcr.io/cloud-builders/git'
+    args: ['tag', 'image-$SHORT_SHA.$BUILD_ID']
+  - id: 'tag version'
+    name: 'gcr.io/cloud-builders/git'
+    args: ['push', '--tags']
