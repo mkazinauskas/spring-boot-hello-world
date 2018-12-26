@@ -12,6 +12,6 @@ spec:
     spec:
       containers:
         - name: spring-boot-hello-world
-          image: gcr.io/testing-226112/spring-boot-hello-world:5a7edcd.335b0766-2a9e-47a2-8847-894846f819c2
+          image: gcr.io/testing-226112/spring-boot-hello-world:abfd868.fc1795b1-dc3a-4fff-81e2-ddd30302b72d
           ports:
             - containerPort: 8080
