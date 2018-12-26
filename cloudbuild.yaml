@@ -1,4 +1,17 @@
 steps:
+  - id: 'decrypt-file'
+    name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - kms
+      - decrypt
+      - --ciphertext-file=id_rsa.enc
+      - --plaintext-file=/root/.ssh/id_rsa
+      - --location=global
+      - --keyring=my-keyring
+      - --key=github-key
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
 #  - id: 'build jar artifact'
 #    name: 'gcr.io/cloud-builders/java/javac:8'
 #    entrypoint: 'bash'
