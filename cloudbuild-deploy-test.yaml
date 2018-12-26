@@ -17,3 +17,4 @@ steps:
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=$_COMPUTE_ZONE'
       - 'CLOUDSDK_CONTAINER_CLUSTER=$_CONTAINER_CLUSTER'
+    timeout: 30s
