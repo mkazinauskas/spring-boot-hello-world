@@ -4,7 +4,7 @@ steps:
     args:
       - apply
       - --recursive
-      - -f 
+      - -f
       - k8s/test
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=$_COMPUTE_ZONE'
