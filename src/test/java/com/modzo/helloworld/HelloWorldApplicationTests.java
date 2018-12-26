@@ -8,8 +8,10 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.StringUtils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @RunWith(SpringRunner.class)
@@ -23,7 +25,7 @@ public class HelloWorldApplicationTests {
     public void helloEndpointReturnsText() {
         ResponseEntity<String> result = template.getForEntity("/", String.class);
         assertEquals(HttpStatus.OK, result.getStatusCode());
-        assertEquals("Hey there! v3", result.getBody());
+        assertTrue(StringUtils.startsWithIgnoreCase(result.getBody(), "Hey there!"));
     }
 }
 
