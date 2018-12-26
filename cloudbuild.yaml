@@ -1,4 +1,5 @@
 steps:
+  # Decrypt the file containing the key-
   - id: 'decrypt-file'
     name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -12,6 +13,29 @@ steps:
     volumes:
       - name: 'ssh'
         path: /root/.ssh
+  # Set up git with key and domain.
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        chmod 600 /root/.ssh/id_rsa
+        cat <<EOF >/root/.ssh/config
+        Hostname github.com
+        IdentityFile /root/.ssh/id_rsa
+        EOF
+        mv known_hosts /root/.ssh/known_hosts
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+  # Use git clone.
+#  - name: 'gcr.io/cloud-builders/git'
+#    args:
+#      - clone
+#      - git@github.com:[GIT-USERNAME]/[REPOSITORY]
+#    volumes:
+#      - name: 'ssh'
+#        path: /root/.ssh
 #  - id: 'build jar artifact'
 #    name: 'gcr.io/cloud-builders/java/javac:8'
 #    entrypoint: 'bash'
@@ -28,3 +52,6 @@ steps:
   - id: 'push new tags'
     name: 'gcr.io/cloud-builders/git'
     args: ['push', '--tags']
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
