@@ -4,7 +4,11 @@ metadata:
   name: spring-boot
   labels:
     app: spring-boot
+  namespace: default
 spec:
+  selector:
+    matchLabels:
+      app: spring-boot
   template:
     metadata:
       labels:
@@ -15,3 +19,5 @@ spec:
           image: gcr.io/testing-226112/spring-boot-hello-world:abfd868.fc1795b1-dc3a-4fff-81e2-ddd30302b72d
           ports:
             - containerPort: 8080
+              name: http
+              protocol: TCP
