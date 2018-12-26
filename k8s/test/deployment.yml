@@ -5,7 +5,6 @@ metadata:
   labels:
     app: spring-boot
 spec:
-  replicas: 3
   template:
     metadata:
       labels:
