@@ -9,7 +9,7 @@ metadata:
     app: spring-boot
   name: spring-boot
   namespace: default
-  resourceVersion: "939197"
+  resourceVersion: "939196"
   selfLink: /api/v1/namespaces/default/services/spring-boot
   uid: b18d66e9-056a-11e9-903f-42010a800056
 spec:
