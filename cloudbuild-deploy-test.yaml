@@ -1,0 +1,8 @@
+steps:
+  - id: 'deploy to test cluster'
+    name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - apply --recursive -f k8s
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=$_COMPUTE_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CONTAINER_CLUSTER'
