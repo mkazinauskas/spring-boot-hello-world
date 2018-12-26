@@ -1,5 +1,5 @@
 # ============ Builder image ===================
-FROM openjdk:8-jdk-alpine as builder
+FROM gcr.io/testing-226112/spring-boot-hello-world-builder:1591eef.a26ef494-cdf4-4946-97d2-6c9a3eeb1b60 as builder
 
 WORKDIR /app
 
