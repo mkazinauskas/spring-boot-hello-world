@@ -1,0 +1,11 @@
+steps:
+  - id: 'build-docker-builder-image'
+    name: 'gcr.io/cloud-builders/docker'
+    args:
+    - build
+    - -f=Dockerfile-test-image
+    - -t
+    - gcr.io/$PROJECT_ID/spring-boot-hello-world-builder:$SHORT_SHA.$BUILD_ID
+    - .
+images:
+  - gcr.io/$PROJECT_ID/spring-boot-hello-world-builder:$SHORT_SHA.$BUILD_ID
