@@ -1,17 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":"2018-12-21T21:52:21Z","labels":{"app":"spring-boot"},"name":"spring-boot","namespace":"default","resourceVersion":"3018","selfLink":"/api/v1/namespaces/default/services/spring-boot","uid":"b18d66e9-056a-11e9-903f-42010a800056"},"spec":{"clusterIP":"10.23.246.164","externalTrafficPolicy":"Cluster","ports":[{"nodePort":32141,"port":80,"protocol":"TCP","targetPort":8080}],"selector":{"app":"spring-boot"},"sessionAffinity":"None","type":"LoadBalancer"},"status":{"loadBalancer":{"ingress":[{"ip":"35.225.123.40"}]}}}
-  creationTimestamp: 2018-12-21T21:52:21Z
   labels:
     app: spring-boot
   name: spring-boot
   namespace: default
-  resourceVersion: "939196"
   selfLink: /api/v1/namespaces/default/services/spring-boot
-  uid: b18d66e9-056a-11e9-903f-42010a800056
 spec:
   clusterIP: 10.23.246.164
   externalTrafficPolicy: Cluster
