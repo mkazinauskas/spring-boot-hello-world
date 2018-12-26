@@ -46,12 +46,26 @@ steps:
 #  - id: 'push docker image to registry'
 #    name: 'gcr.io/cloud-builders/docker'
 #    args: ['push', 'gcr.io/$PROJECT_ID/spring-boot-hello-world:$SHORT_SHA.$BUILD_ID']
+  # Use git clone.
+  - name: 'gcr.io/cloud-builders/git'
+    args:
+      - clone
+      - git@github.com:[GIT-USERNAME]/[REPOSITORY]
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   - id: 'tag version'
     name: 'gcr.io/cloud-builders/git'
-    args: ['tag', 'image-$SHORT_SHA.$BUILD_ID']
+    args:
+    - tag
+    - git@github.com:modestukasai/spring-boot-hello-world
+    - image-$SHORT_SHA.$BUILD_ID
   - id: 'push new tags'
     name: 'gcr.io/cloud-builders/git'
-    args: ['push', '--tags']
+    args:
+    - push
+    - git@github.com:modestukasai/spring-boot-hello-world
+    - --tags
     volumes:
       - name: 'ssh'
         path: /root/.ssh
