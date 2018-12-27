@@ -18,6 +18,13 @@ spec:
       containers:
         - name: spring-boot-hello-world
           image: gcr.io/testing-226112/spring-boot-hello-world:ce9d78f.959c3f86-0cd9-4155-9ff7-c888e67b9082
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 300m
+            requests:
+              memory: 64Mi
+              cpu: 100m
           ports:
             - containerPort: 8080
               name: http
