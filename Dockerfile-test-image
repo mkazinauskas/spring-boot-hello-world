@@ -5,6 +5,4 @@ WORKDIR /app
 
 COPY . .
 
-RUN ls -a
-
 RUN ./gradlew build clean

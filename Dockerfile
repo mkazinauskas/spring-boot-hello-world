@@ -5,8 +5,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN ls -a
-
 RUN ./gradlew build
 
 # ============ Production image ===================
