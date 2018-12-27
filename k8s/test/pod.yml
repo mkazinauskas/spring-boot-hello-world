@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: spring-boot-pod
+  name: spring-boot
 spec:
   containers:
     - name: spring-boot-hello-world
