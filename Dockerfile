@@ -10,7 +10,7 @@ RUN ls -a
 RUN ./gradlew build
 
 # ============ Production image ===================
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jre-slim
 
 RUN adduser --system app --home /app
 USER app
